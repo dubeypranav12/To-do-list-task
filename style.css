@@ -1,0 +1,500 @@
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 55px 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        
+        radial-gradient(
+            circle at 5% 8%,
+            rgba(0, 229, 255, 0.55),
+            transparent 22%
+        ),
+
+        
+        radial-gradient(
+            circle at 100% 45%,
+            rgba(0, 210, 220, 0.42),
+            transparent 25%
+        ),
+
+      
+        radial-gradient(
+            circle at 55% 100%,
+            rgba(0, 200, 210, 0.30),
+            transparent 28%
+        ),
+
+        
+        radial-gradient(
+            circle at 15% 75%,
+            rgba(0, 70, 140, 0.45),
+            transparent 32%
+        ),
+
+       
+        linear-gradient(
+            135deg,
+            #031426 0%,
+            #062746 45%,
+            #064d68 100%
+        );
+
+    background-attachment: fixed;
+
+    color: #1f2937;
+}
+
+
+
+.todo-container {
+    width: 100%;
+    max-width: 700px;
+
+    padding: 38px;
+
+    background-color: #f7f9fc;
+
+    border: 1px solid #dce4ec;
+    border-radius: 22px;
+
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+
+
+
+.todo-container h1 {
+    text-align: center;
+
+    margin-bottom: 8px;
+
+    font-size: 36px;
+    font-weight: 800;
+
+    color: #162b4d;
+}
+
+
+
+
+.subtitle {
+    text-align: center;
+
+    margin-bottom: 12px;
+
+    color: #6b7c91;
+
+    font-size: 15px;
+}
+
+
+
+
+.date-time {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+
+    margin-bottom: 28px;
+
+    color: #64748b;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#currentTime {
+    color: #2563eb;
+}
+
+
+.stats {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 30px;
+}
+
+
+.stat-box {
+    padding: 18px 10px;
+
+    text-align: center;
+
+    background-color: #edf3f9;
+
+    border: 1px solid #d7e1ec;
+    border-radius: 13px;
+
+    transition: 0.25s;
+}
+
+
+.stat-box:hover {
+    transform: translateY(-2px);
+
+    border-color: #b8cbe0;
+
+    box-shadow: 0 5px 12px rgba(30, 64, 175, 0.08);
+}
+
+
+.stat-box span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #2457b2;
+
+    font-size: 25px;
+    font-weight: 800;
+}
+
+
+.stat-box p {
+    color: #607086;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+
+
+.input {
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+
+#taskInput {
+    flex: 1;
+
+    padding: 14px 16px;
+
+    background-color: #ffffff;
+
+    border: 2px solid #d2dce7;
+    border-radius: 10px;
+
+    outline: none;
+
+    color: #1f2937;
+
+    font-size: 16px;
+
+    transition: 0.25s;
+}
+
+
+#taskInput::placeholder {
+    color: #9aa7b6;
+}
+
+
+#taskInput:focus {
+    border-color: #3b73c5;
+
+    box-shadow: 0 0 0 3px rgba(59, 115, 197, 0.1);
+}
+
+
+
+#add {
+    padding: 14px 22px;
+
+    background-color: #2f67b5;
+
+    border: none;
+    border-radius: 10px;
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+
+#add:hover {
+    background-color: #255493;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 5px 12px rgba(47, 103, 181, 0.22);
+}
+
+
+
+
+#taskCount {
+    margin: 16px 0;
+
+    color: #56677c;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+
+
+.filters {
+    display: flex;
+
+    gap: 9px;
+
+    margin-bottom: 25px;
+}
+
+
+.filters button {
+    flex: 1;
+
+    padding: 10px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #ccd8e5;
+    border-radius: 8px;
+
+    color: #42566e;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+
+.filters button:hover {
+    background-color: #e9f0f8;
+
+    border-color: #8eadd1;
+
+    color: #2457a6;
+}
+
+
+
+#taskList {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+}
+
+
+#taskList li {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 14px 16px;
+
+    margin-bottom: 11px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #dce4ec;
+    border-left: 4px solid #5b82b5;
+
+    border-radius: 10px;
+
+    transition: 0.25s;
+}
+
+
+#taskList li:hover {
+    transform: translateX(3px);
+
+    border-color: #bdccdc;
+    border-left-color: #3567a6;
+
+    box-shadow: 0 5px 12px rgba(31, 41, 55, 0.08);
+}
+
+#taskList li span {
+    flex: 1;
+
+    color: #29394d;
+
+    font-size: 16px;
+
+    word-break: break-word;
+}
+
+#taskList li button:first-child {
+    width: 35px;
+    height: 35px;
+
+    flex-shrink: 0;
+
+    background-color: #e4f5e9;
+
+    border: 1px solid #c5e8cf;
+    border-radius: 50%;
+
+    color: #24844a;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+
+#taskList li button:first-child:hover {
+    background-color: #2f9658;
+
+    border-color: #2f9658;
+
+    color: white;
+}
+
+
+
+
+#taskList li button:last-child {
+    padding: 8px 13px;
+
+    background-color: #fff0f0;
+
+    border: 1px solid #f3cece;
+    border-radius: 7px;
+
+    color: #c43b3b;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+
+#taskList li button:last-child:hover {
+    background-color: #c94747;
+
+    border-color: #c94747;
+
+    color: white;
+}
+
+
+
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 25px 14px;
+    }
+
+
+    .todo-container {
+        padding: 26px 18px;
+
+        border-radius: 16px;
+    }
+
+
+    .todo-container h1 {
+        font-size: 29px;
+    }
+
+
+    .date-time {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 4px;
+    }
+
+
+    .stats {
+        gap: 7px;
+    }
+
+
+    .stat-box {
+        padding: 14px 5px;
+    }
+
+
+    .stat-box span {
+        font-size: 21px;
+    }
+
+
+    .input {
+        flex-direction: column;
+    }
+
+
+    #add {
+        width: 100%;
+    }
+
+
+    .filters {
+        gap: 5px;
+    }
+
+
+    .filters button {
+        padding: 9px 4px;
+
+        font-size: 13px;
+    }
+
+
+    #taskList li {
+        padding: 12px;
+
+        gap: 9px;
+    }
+
+
+    #taskList li span {
+        font-size: 14px;
+    }
+
+
+    #taskList li button:last-child {
+        padding: 7px 9px;
+
+        font-size: 12px;
+    }
+}
